@@ -4,14 +4,13 @@
 
 <div align="center">
 
-[![Discord](https://img.shields.io/discord/1296157888343179264?color=8c03fc&label=Discord&logo=discord&logoColor=white)](https://discord.gg/FsRc2GUwZR)
-[![Modrinth](https://img.shields.io/modrinth/dt/qESHWJ0N?style=flat&logo=modrinth)](https://modrinth.com/mod/skyblock-rpc)
+[![Discord](https://img.shields.io/discord/1296157888343179264?color=8c03fc&label=Discord&logo=discord&logoColor=white)](https://discord.gg/6z9WjXBD)
+[![Modrinth](https://img.shields.io/modrinth/dt/qESHWJ0N?style=flat&logo=modrinth)](https://modrinth.com)
 
 </div>
 
-A Discord integration for Hypixel SkyBlock, developed with love and passion.
-
-To configure it, run ``/skyblockrpc``.
+A 26.1.2 port of the famous mod by meowdding! 
+To configure it, run ``/rpc``.
 
 ### Features
 
