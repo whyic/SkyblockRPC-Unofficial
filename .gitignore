@@ -1,7 +1,8 @@
 .devauth/*
 !.devauth/config.toml
 .kotlin
-
+build/
+.gradle/
 # User-specific stuff
 .idea/
 
