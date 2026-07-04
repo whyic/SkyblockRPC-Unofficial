@@ -1,0 +1,46 @@
+package me.owdding.skyblockrpc
+
+import me.owdding.skyblockrpc.config.Config
+import tech.thatgravyboat.skyblockapi.api.profile.currency.CurrencyAPI
+import tech.thatgravyboat.skyblockapi.utils.extentions.toFormattedString
+
+enum class Element(val example: String, val getter: () -> String) {
+    PURSE("Purse: 123,456 (Motes in Rift)", {
+        if (SkyBlockTracker.currentZone.contains("Rift", ignoreCase = true)) "Motes: ${CurrencyAPI.motes.toFormattedString()}"
+        else "Purse: ${CurrencyAPI.purse.toFormattedString()}"
+    }),
+    BANK("Bank: 123,456", {
+        "Bank: ${CurrencyAPI.bank.toFormattedString()}"
+    }),
+    BITS("Bits: 123,456", {
+        "Bits: ${CurrencyAPI.bits.toFormattedString()}"
+    }),
+    ISLAND("Island: The End", {
+        "Zone: ${SkyBlockTracker.currentZone}"
+    }),
+    AREA("⏣ Auction House", {
+        "⏣ ${SkyBlockTracker.currentZone}"
+    }),
+    ISLAND_AREA("The End - Auction House", {
+        "Exploring ${SkyBlockTracker.currentZone}"
+    }),
+    HELD_ITEM("Holding: Aspect of the End", {
+        "Holding: ${SkyBlockTracker.heldItem}"
+    }),
+    CUSTOM_TEXT("Custom Text", {
+        Config.customText
+    }),
+    ; // <-- This little semicolon is what breaks everything if it gets deleted!
+
+    override fun toString() = example
+
+    companion object {
+        fun getPrimaryLine() = getRotation(Config.primaryLine.toList())?.getter()
+        fun getSecondaryLine() = getRotation(Config.secondaryLine.toList())?.getter()
+
+        private fun getRotation(elements: List<Element>): Element? = runCatching {
+            val index = (System.currentTimeMillis() / 1000 / Config.timeBetweenRotations) % elements.size
+            elements[index.toInt()]
+        }.getOrNull()
+    }
+}
