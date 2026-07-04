@@ -94,9 +94,11 @@ object SkyBlockRPC : ClientModInitializer, Logger by LoggerFactory.getLogger("Sk
         LOGO_SKY("logo_sky", "Logo v1"),
         LOGO_TRANSPARENT("logo_transparent", "Logo v2"),
         LOGO_TRANS("logo_trans", "Lesbian Logo"),
+        LOGO_HYPIXEL(id="logo_hypixel", "Hypixel"),
         LOGO_ASA(id="logo_asa", "Asa"),
         LOGO_AGLAEA(id="logo_aglaea", "Aglaea"),
         LOGO_XIAO(id="logo_xiao", "Xiao"),
+
         ;
 
         override fun toString() = displayName
